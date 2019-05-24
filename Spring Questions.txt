@@ -6,7 +6,7 @@ ans) use @RequestMapping annotation as shown below.
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
 we can change the request method as required.
 
-3)what are importent HTTp request method?
+3)what are importent HTTP request method?
 ans)
 	DELETE
 	GET
