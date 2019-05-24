@@ -1,7 +1,7 @@
 1) how to create a rest controller in spring boot?
 ans) we need to create class and annotate with @RestController annotation.
 
-2)how to specify URL and HTTP method to method in rest controller?
+2)how to specify URL and HTTP method to method in rest controller???
 ans) use @RequestMapping annotation as shown below.
 @RequestMapping(value = "/signup", method = RequestMethod.POST)
 we can change the request method as required.
