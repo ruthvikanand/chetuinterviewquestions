@@ -1,0 +1,104 @@
+1) how to create a rest controller in spring boot?
+ans) we need to create class and annotate with @RestController annotation.
+
+2)how to specify URL and HTTP method to method in rest controller?
+ans) use @RequestMapping annotation as shown below.
+@RequestMapping(value = "/signup", method = RequestMethod.POST)
+we can change the request method as required.
+
+3)what are importent HTTp request method?
+ans)
+	DELETE
+	GET
+	HEAD
+	OPTIONS
+	PATCH
+	POST
+	PUT
+	TRACE
+	
+4)what are important request method which have used in ur project?
+ans) DELETE, GET,POST, PUT
+
+5)if you return object type from rest controller, in which formate do you get your output?
+ans) JSON(javaScript Object Notation)
+
+6) write example for JSON with two fields  name and password?
+ans)
+{"name":"anand", "password":"narappa"}
+
+7)how do you return HTTP status from rest controller ?
+ans) 
+a)we need to use ResponseEntity class
+b) in status() method we have to pass status
+c) in body() method we have to pass output.
+ex:
+return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(cust);
+return type in method :ResponseEntity<Customer> 
+
+8)what are important HTTP status codes?
+ans)400 Bad Request
+401 Unauthorized
+403 Forbidden
+404 Not Found
+500 Internal Server Error
+502 Bad Gateway
+503 Service Unavailable
+504 Gateway Timeout
+200 success
+
+9)how to take input parameter in a rest controller method if param is a string?
+ans)
+(@RequestParam(name = "junkid") String creditcardid
+
+10)how to take input parameter in a rest controller method if param is a Object?
+ans)
+@RequestBody Customer customer
+
+11) which implmentation of REST you are using?
+ans) Since in my project iam using spring boot, iam using spring implementation of REST.
+
+12) do you know other implementation of REST?
+ans) No , but i heard about Jersey,RestEasy but never used. I think i can easily learn since i worked on one already.
+
+13) what REST stands for? what is it?
+ans) 
+representational state transfer. its a specification(set of rules) to communicate between browser and server. there are mnay implementations like Spring, Jersey, Resteasy. i have worked on spring implementation.
+
+14)what is JPA?
+ans) 
+it is java perisitence API. its a specification(set of rules) to communicate between java and database. There are mnay implementaions like Spring, Hibernate, Ibatis.
+i have worked on Spring implementaion.
+
+15) what is ORM? have you used ORM?
+ans)
+ORM stands for Object relational mapping. I have used Spring implementation of JPA. I heard about Hibernate and ibatis but never got chance to use.
+
+16)what is JDBC ? whave you used it?
+asn) JDBC is java database connectivity. Before getting job i did some POC sample to learn about it. But i dont rememebr much now. since iam using Spring JPA
+implementaion for Databse access.
+
+17)how to make a normal interface a spring boot crudrepository?
+ans)
+FROM
+public interface OrderRepository  {
+
+}
+TO
+public interface OrderRepository extends CrudRepository<Order, Long> {
+
+}
+
+18)how to make a java class, a database entity?
+ans)
+a) add below three annotations to the class
+@Entity
+@Table(name = "state")
+@JsonIgnoreProperties(ignoreUnknown = true)
+
+b)add below annotations to the id attribute
+
+@Id
+@GeneratedValue
+
+

@@ -1,0 +1,350 @@
+1) what is encapsulation?
+ans) we can protect instance variables by making it private and provide getter and setter method for others to 
+access. By this we can control the value of instance variables by having logic in setter method in future 
+
+2) what is polymorphism?
+ans) polymorphism means one thing can be used for many purposes.
+Using superclass reference we can call subclass methods, that is polymorphism. But polymorphism method invocations apply only to instance methods, 
+ not static methods,not varaibles.
+ 
+ 3) why is java called object oriented language?
+ Ans) pie
+ 
+ p-  polymorphism
+ i-inheritance
+ e-encapsulation
+
+ 4)what is inheritance?
+ ans) child class can access super class variables and methods. this is called inheritance
+ 
+ 5)does java supports multiple inheritance?if not why?
+ ans) no ,because child  class will get confused which method it has to use, if same method name is present in both superclass.
+ 
+ 6)  what are two different ways of creating thread?
+ ans)
+
+a)Implement the interface java.lang.Runnable and pass an instance of the class implementing it to the Thread constructor.
+
+b)Extend Thread itself and override its run() method. 
+
+7) write example for both types in question 6?
+ans)
+ 
+ 
+ a) Implmenting RUnnable
+ 
+ class ThreadTest implements Runnable{
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName());	
+	}	
+}
+
+ class Test{
+	public static void main(String[] args) {
+		Thread t1 = new Thread(new ThreadTest());
+		t1.start();
+		
+		Thread t2 = new Thread(new ThreadTest());
+		t2.start();
+	}
+}
+ 
+ 
+ b) extending Thread
+ 
+ class ThreadTest extends Thread{
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName());
+	}
+}
+
+ class Test{
+	public static void main(String[] args) {
+		
+		ThreadTest t1  =new ThreadTest();
+		t1.start();
+		
+		ThreadTest t2  =new ThreadTest();
+		t2.start();
+		
+	}
+}
+ 
+ 
+8) why to use threads?
+ans)
+a) To take full advantage of CPU power.
+b) To make a task run parallel to another task e.g. drawing and event handling.
+
+9) how to sort ArrayList of strings?
+ans) use Collections.sort() method.
+
+10) how to sort arraylist of customer class having 3-4 fields?
+ans) we cant use Collections.sort() directly why because java wont know from which field to sort.
+that is why we need to implement Comparable interface, which has compareTo method. Inside compareTo method we need to tell from which field to sort to.
+
+
+11) Why comparable interface is used?
+ans) TO sort object type classes.
+
+12) can we use Comparable interface to sort multiple fields?
+ans) no. AT GIVEN POINT OF TIME WE CAN SORT BY ONLY FIELD.
+
+13) can we use Compartor interface to sort multiple fields? 
+ ans) yes, we need to create new compartor class for each field
+ 
+ 14) what is difference between Comparable to Compartor?
+ ans)
+ a) modification 
+ for comparable we need to modify the class which we need to sort
+ for comparator no need to modify the class which we need to sort
+ 
+ b) package
+ comparable is in java.lang
+ comparator is in java.utill
+ 
+ c) fields to sort
+  we can sort one field using comparable
+  we can sort multiply field using comparator
+  
+  d) method name
+  comparable interface method name is compareTo. method signature as below
+  public int compareTo(Customer arg0) 
+ 
+ comparator interface method name is compare. method signature as below
+ public int compare(Customer arg0, Customer arg1)
+ 
+ 15) why we use hasset?give example?
+ ans) we use unique value
+ 
+ ex:public class Test {
+	public static void main(String[] args) {
+		HashSet<String> names = new HashSet<String>();
+		names.add("ruthu");
+		names.add("chai");
+		names.add("kana");
+		names.add("shanthi");
+		names.add("shanthi");
+		System.out.println(names);
+	}
+
+}
+ 
+ 16) why we use hasmap? give example?
+ ans)we use for key value
+  
+ ex:public class Test {
+	public static void main(String[] args) {
+		HashMap<String, String> fatherSonMap = new HashMap<String,String>();
+		fatherSonMap.put("anand", "ruthvik");
+		fatherSonMap.put("vivek", "thanish");
+		fatherSonMap.put("madan", "gagan");
+		fatherSonMap.put("naveen", "vyshu");
+		fatherSonMap.put("puru", "siri");
+		System.out.println(fatherSonMap.get("madan"));
+	}
+
+}
+
+17)what are using for java?
+ans) a)because its object oriented language
+ b) it is easly portable
+ c) good features like  multithreading and collections
+ 
+ 18)What are the usages of Java packages?
+ ans)
+ a)It helps resolve naming conflicts when different packages have classes with the same names. 
+ b)This also helps you organize files within your project.
+ 
+ 18) Which class is the superclass for every class ?
+ ans) Object
+ 
+ 19)what are methods in Object class?
+ ans)
+1) Object clone() throws CloneNotSupportedException   
+2) boolean equals(Object obj)   
+3)void finalize() throws Throwable
+4) Class getClass()   
+5) int hashCode()  
+6) String toString()
+7)  void notify()
+8)  void notifyAll()
+9)  void wait()
+
+20)why final finally finalize() is used?
+ans)
+final:final can be applied to class, methods , primitive variables and reference variables.
+a) if we apply final to a class,no other class can subclass that final class   
+b) if we apply final to a method ,subclass can not override the method
+c) if we apply final to a primitive variables we can't change its value it bheaves like a constant
+d) if we apply final to a reference variables we can't change the reference itself, but we can change its variables or we can call its method.
+
+finally: we use finally in exception handling. If there is an exception, and we need to do any mandatory things, like closing connection , then we need
+			to put that code in finally block.
+			
+finalize(): it is used by JVM/JAVA before garbage collection. we never need to call finalize() method. finalize() is in Object class.	
+
+21)	what is serialization in java?
+ans) serialization in java is process used to convert object into a binary format which can be presisted into disk or sent
+over network to any other running java virtual mechine. the reverse process of creating object from binary stream is deserialization in java.
+
+22) how to make a java class serializable?
+ans) java class just needs to implements java.io.serializable interface and JVM will take care of serializing object in default format
+
+23) does serializable interface contain any methods?
+ans) no,serializable interface does not have any method. they are known as marker interface.
+it just indicates JVM or java the class that implements  this interface can be serialized.
+
+24) what is the difference between ArrayList and vector?
+ans) 
+1)
+ArrayList is not thread safe i.e  it is not synchronized
+Vector is thread safe i.e it is synchronized
+2)
+Since arrayList is not synchronized its performance is better than vector
+3)
+ArrayList increments 50% of the current array size if the number of elements exceeds its capacity, while vector increments 100%. 	
+
+25)  what is the difference between ArrayList and linkedlist?
+ans) 
+1) ArrayList uses array internally but linkedlist uses doubly linked List
+2) Arraylist is slow in removing items because it has to re order array after removing. linkedList is faster because there is no reordring
+3) Arraylist is faster in searching and adding as it is indexed.LinkedList is slow in searching as it is not indexed.
+
+26) what is stack? what is are some of the methods in Stack class? given example
+ans) stack is first In last out(FILO) datastructure. some of methods are push(), peek(),pop() it implements List interface.
+stack can be used in back button functionality in browser
+
+27) what is the use of toString() method in object class?
+ans) By default toString gives memory location which is useless.we have to override toString() method and return variable values,
+ so that we can know values of instance variable in object
+
+28)why is equals method used?
+ans) to tell java if two objects are meaningfully equal. since objects contains many instance variable, java can't decide which variable to compare for 
+object equality. so we need to override equals() method in object class to tell java which variables to compare for object equality 
+
+29)what are main implementation class for List interface?
+ans) ArrayList, LinkedList,Stack,vector,
+
+30) what are main implementation class for set interface?
+ans) HashSet, TreeSet LinkedHashSet
+
+
+31) what is the difference between HashSet and TreeSet class?
+ans) both implement Set interface. both store unique objects.
+ HashSet is onordered whereas Treeset is sorted ,but For Treeset you need to implement comparable interface and tell from which field you need to sort.
+
+32)what is the difference between hashset and linkedhashdet?
+A HashSet is unordered and unsorted Set. LinkedHashSet is the ordered version of HashSet.
+The only difference between HashSet and LinkedHashSet is that LinkedHashSet maintains the insertion order.
+
+33) why is hashing used?
+ans) for performance improvement.
+
+34) For HashSet is it enough to just implement equals() method to tell java to store unique objects?
+ans) no we have to implement both hashCode() and equals() method.
+
+35)What is difference between Checked and Unchecked Exception in Java ?
+ans)
+a)All checked exception classes has Exception class as parent.
+All Unchecked Exception classes has RuntimeException as its parent.
+
+b)checked exception has to be handled using try/catch or it has to be thrown by using throws in method signature.
+unchecked exception does not need to be handled using try/catch.
+
+c)some of the examples of checked exceptions are IOException,SQlException etc.
+some of the examples of unchecked exceptions are NullpointerException, ArrayIndexOutOfBoundException, NUmberFormatException,ClassCastException.
+ 
+ 
+36)Have you written your own custom Exception in Java? How do you do that?
+ans)
+Yes. for my Customer class some people were setting age value as more than 100. to handle age value is more than 100 issues,
+We created Exception class named AgeLimitException. if age value is more than 100, i was throwing 
+
+
+public class Bird {
+
+	public void sing(int time) throws SingLimitException{
+		if (time > 100) {
+			throw new SingLimitException();
+		} else {
+			System.out.println("sing for " + time + " minutes");
+		}
+
+	}
+
+}
+
+class SingLimitException extends Exception {
+	SingLimitException() {
+		super("cant sing so long exception");
+	}
+}
+
+
+37)what is the difference between abstract class and interface?
+ans) 
+a) abstract class does not support multiple inheritance i.e a class can not extends two abstract classes
+interface supports multiple inheritance i.e a class can implement more than one interface
+
+b)abstract class contains both abstract and non abstract methods
+interface contains only abstract methods except default.
+
+38)do you know any design pattern?
+ans) i know singleton pattern
+
+39) why singleton pattern is used?
+ans) if an application needs only one instance/object of the class, then we need to use singleton pattern
+
+40)write singleton pattern?
+
+ans)
+public class Singleton {
+	static Singleton b;
+	
+	private Singleton() {
+
+	}
+	
+	public static synchronized Singleton getInstance() {
+		
+		if(b!=null) {
+			return b;
+		}else {
+			b = new Singleton();
+			return b;
+		}
+	}
+
+
+}
+
+
+41)why string pool is used?
+ans) String pool is used for saving memory. String pool reuses the strings unlike new operator which creates new string 
+everytime.
+
+42)
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ https://www.geeksforgeeks.org/output-java-program-set-25-polymorphism/
+ https://www.geeksforgeeks.org/output-of-java-program-set-2/
+ https://www.geeksforgeeks.org/output-of-java-program-set-1/
+ https://www.geeksforgeeks.org/output-of-java-program-set-3/	
+ https://www.geeksforgeeks.org/output-of-java-program-set-4/
+ https://www.geeksforgeeks.org/output-of-java-program-set-5-2/
+ https://www.geeksforgeeks.org/output-java-program-set-6/
+ https://www.geeksforgeeks.org/output-java-program-set-7/
+ https://www.geeksforgeeks.org/output-java-program-set-8/
+ https://www.geeksforgeeks.org/output-java-program-set-9/
+ https://www.geeksforgeeks.org/output-java-program-set-11/

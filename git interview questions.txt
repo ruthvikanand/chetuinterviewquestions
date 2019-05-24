@@ -1,0 +1,26 @@
+1)which version control system you are using?
+ans) GIT
+
+2)what is git?
+ans) it is a software that helps developers manage changes to source code without any conflict.
+it mantains history of difference versions of each developers
+
+3)why is "git init" used?
+ans) Create an empty Git repository or reinitialize an existing one
+
+4) how to get repository in github server in to your local machine?
+
+git clone https://github.com/anand8412/delete.git
+
+
+5)how to check which reposiotry is your local folder attached to?
+ans) 
+git remote -v
+
+
+6)how to add your local file into github?
+ans)
+
+git add .
+git commit -m "ADDING NEW FILE"
+git push
